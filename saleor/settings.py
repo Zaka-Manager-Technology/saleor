@@ -11,6 +11,7 @@ import jaeger_client.config
 import pkg_resources
 import sentry_sdk
 import sentry_sdk.utils
+from celery.schedules import crontab
 from django.core.exceptions import ImproperlyConfigured
 from django.core.management.utils import get_random_secret_key
 from graphql.utils import schema_printer
@@ -489,6 +490,10 @@ CELERY_BEAT_SCHEDULE = {
     "deactivate-preorder-for-variants": {
         "task": "saleor.product.tasks.deactivate_preorder_for_variants_task",
         "schedule": timedelta(hours=1),
+    },
+    "delete-expired-checkouts": {
+        "task": "saleor.checkout.tasks.delete_expired_checkouts",
+        "schedule": crontab(hour=0, minute=0),
     },
 }
 
