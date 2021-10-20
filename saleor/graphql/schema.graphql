@@ -6408,6 +6408,7 @@ type Shop {
   automaticFulfillmentDigitalProducts: Boolean
   reserveStockDurationAnonymousUser: Int
   reserveStockDurationAuthenticatedUser: Int
+  limitQuantityPerCheckout: Int
   defaultDigitalMaxDownloads: Int
   defaultDigitalUrlValidDays: Int
   companyAddress: Address
@@ -6469,6 +6470,7 @@ input ShopSettingsInput {
   customerSetPasswordUrl: String
   reserveStockDurationAnonymousUser: Int
   reserveStockDurationAuthenticatedUser: Int
+  limitQuantityPerCheckout: Int
 }
 
 type ShopSettingsTranslate {
